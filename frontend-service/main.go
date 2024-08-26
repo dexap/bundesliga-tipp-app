@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/dexap/bundesliga-tipp-app/frontend-service/templates"
+
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
