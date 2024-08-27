@@ -1,0 +1,18 @@
+package layout
+
+import (
+  "github.com/dexap/bundesliga-tipp-app/frontend-service/templates/layout"
+)
+
+templ Landing() {
+  @layout.Base() {
+    <div class="container mx-auto">
+      <div id="header">
+        <h1 class="text-center">Landing Layout Header</h1>
+      </div>
+      <div id="content">
+        content of landing page
+      </div>
+    </div>
+  }
+}

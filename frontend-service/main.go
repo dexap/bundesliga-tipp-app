@@ -1,36 +1,24 @@
 package main
 
 import (
-	"context"
 	"log"
-
-	"github.com/dexap/bundesliga-tipp-app/frontend-service/templates"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	"github.com/dexap/bundesliga-tipp-app/frontend-service/handler"
 )
 
 func main() {
 	e := echo.New()
-
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.GET("/", func(c echo.Context) error {
-		return templates.Home().Render(context.Background(), c.Response().Writer)
-	})
+	userHandler := handler.UserHandler{}
+	baseHandler := handler.BaseHandler{}
 
-	e.GET("/login", func(c echo.Context) error {
-		return templates.Login().Render(context.Background(), c.Response().Writer)
-	})
-
-	e.POST("/login", handleLogin)
+	e.GET("/", baseHandler.HandleLandingShow)
+	e.GET("/user", userHandler.HandleUserShow)
 
 	log.Fatal(e.Start(":3000"))
-}
-
-func handleLogin(c echo.Context) error {
-	// Implementieren Sie hier Ihre Login-Logik
-	// Für dieses Beispiel geben wir einfach die Home-Seite zurück
-	return templates.Home().Render(context.Background(), c.Response().Writer)
 }
