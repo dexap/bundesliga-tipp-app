@@ -1,0 +1,12 @@
+package user
+
+import (
+	model "github.com/dexap/bundesliga-tipp-app/frontend-service/model"
+	layout "github.com/dexap/bundesliga-tipp-app/frontend-service/templates/layout"
+)
+
+templ Show(user model.User) {
+	@layout.Base() {
+		<h1>Hello { user.Email }</h1>
+	}
+}

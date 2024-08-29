@@ -2,7 +2,10 @@ module github.com/dexap/bundesliga-tipp-app/frontend-service
 
 go 1.22.5
 
-require github.com/labstack/echo/v4 v4.12.0
+require (
+	github.com/a-h/templ v0.2.771
+	github.com/labstack/echo/v4 v4.12.0
+)
 
 require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
