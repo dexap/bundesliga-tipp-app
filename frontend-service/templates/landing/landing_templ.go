@@ -9,6 +9,7 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"github.com/dexap/bundesliga-tipp-app/frontend-service/templates/components"
 	"github.com/dexap/bundesliga-tipp-app/frontend-service/templates/layout"
 )
 
@@ -42,7 +43,7 @@ func Landing() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container mx-auto\"><div id=\"header\"><h1 class=\"text-center\">Landing Layout Header</h1></div><div id=\"content\">content of landing page</div></div>")
+			templ_7745c5c3_Err = components.Banner().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

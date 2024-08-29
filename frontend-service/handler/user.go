@@ -9,8 +9,5 @@ import (
 type UserHandler struct{}
 
 func (h UserHandler) HandleUserShow(c echo.Context) error {
-	u := model.User{
-		Email: "user@mail.com",
-	}
-	return render(c, user.Show(u))
+	return render(c, user.Show(model.User{Email: "user@mail.com"}))
 }
