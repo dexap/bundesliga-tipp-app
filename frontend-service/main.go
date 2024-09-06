@@ -7,6 +7,8 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 
 	"github.com/dexap/bundesliga-tipp-app/frontend-service/handler"
+	"github.com/dexap/bundesliga-tipp-app/frontend-service/model"
+	"github.com/dexap/bundesliga-tipp-app/frontend-service/service"
 )
 
 func main() {
@@ -19,6 +21,8 @@ func main() {
 
 	e.GET("/", baseHandler.HandleLandingShow)
 	e.GET("/user", userHandler.HandleUserShow)
+
+	service.GenerateSchedule(model.GetTestTeams())
 
 	log.Fatal(e.Start(":4000"))
 }
